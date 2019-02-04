@@ -24,7 +24,7 @@ void TicTacToeWindow::updateScreen()
     //QString whosWinner(); // return "X" or "O" if there's any winner. return anything if there's no winner yet
 
     QString cur = tttModel->getCurrentBoard();
-std::cout<<cur.toStdString()<<std::endl;
+
     ui->board00->setText("" + cur[0]);
     ui->board01->setText("" + cur[1]);
     ui->board02->setText("" + cur[2]);
@@ -44,8 +44,10 @@ std::cout<<cur.toStdString()<<std::endl;
         ui->TBStatusLabel->setText(msg);
     }
     else {
-        // no winner yet
-        QString msg = tttModel->getWhosTurn() + "'s turn";
+       char noWinner=tttModel->getWhosTurn();// no winner yet
+       QString noWinnerString="";
+               noWinnerString.append(noWinner);
+        QString msg = "'s turn";
         ui->IBStatusLabel->setText(msg);
         ui->TBStatusLabel->setText(msg);
     }
