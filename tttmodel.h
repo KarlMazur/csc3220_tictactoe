@@ -11,7 +11,7 @@ public:
     void reset();
     void put(int row, int col);
     QString getCurrentBoard(); // "---XOXX--"
-    QString getWhosTurn(); // "X" or "O" or if somebody already won, return anything
+ char getWhosTurn(); // "X" or "O" or if somebody already won, return anything
     bool hasSomeoneWon(); // return if somebody has won
     QString whosWinner(); // return "X" or "O" if there's any winner. return anything if there's no winner yet
 
@@ -19,6 +19,8 @@ private:
     // my own data structure and boolean variable and checking logics if the game has ended?
     // finish implementation of the functions above
     QString boardStatus;
+    static const int SIZE=3;
+    char array[SIZE][SIZE]={{'-','-','-'},{'-','-','-'},{'-','-','-'}};
 };
 
 #endif // TTTMODEL_H
